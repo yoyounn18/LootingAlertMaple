@@ -18,10 +18,10 @@ function App() {
 
   return (
     <div className="App">
-      <StartBtn onClick={startOnClick} text={start === false ? '시작' : '리셋'} />
-      {start && <Count second={looting} src={Meso} />}
-      {start && <Count second={exp15} src={Exp15} />}
-      {start && <Count second={exp30} src={Exp30} />}
+      <StartBtn onClick={startOnClick} text={start === false ? '시작' : '리셋'} /> <br />
+      {start && <Count second={looting} src={Meso} />}일시정지<br />회수
+      {start && <Count second={exp15} src={Exp15} />}일시정지<br />15분 경쿠
+      {start && <Count second={exp30} src={Exp30} />}일시정지<br />30분 경쿠
     </div>
   );
 }

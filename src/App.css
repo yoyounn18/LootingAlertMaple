@@ -1,5 +1,8 @@
+@import url("https://unpkg.com/@kfonts/nexon-maplestory-otf/index.css");
+
 .App {
   text-align: center;
+  font-family: "메이플스토리 OTF", "메이플스토리OTF", "nexon-maplestory-otf";
 }
 
 .App-logo {
@@ -21,6 +24,7 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
+  font-family: "메이플스토리 OTF", "메이플스토리OTF", "nexon-maplestory-otf";
   color: white;
 }
 

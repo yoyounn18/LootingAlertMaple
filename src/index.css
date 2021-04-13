@@ -1,13 +1,18 @@
+@import url("https://unpkg.com/@kfonts/nexon-maplestory-otf/index.css");
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: "메이플스토리 OTF", "메이플스토리OTF", "nexon-maplestory-otf";
+
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+.maple-font {
+  font-family: "메이플스토리 OTF", "메이플스토리OTF", "nexon-maplestory-otf";
 }
