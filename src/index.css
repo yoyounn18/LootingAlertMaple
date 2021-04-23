@@ -9,7 +9,7 @@ body {
   justify-content: center;
   width: 100vw;
   height: 100vh;
-  background-image: url("C:\Users\kimyoungjo\Desktop\Study\maple-looting-alert\src\main-wallpaper.jpg");
+  background-image: url("./mainwallpaper.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
