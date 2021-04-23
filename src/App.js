@@ -5,47 +5,51 @@ import Exp15 from './15min.mp3'
 import Exp30 from './30min.mp3'
 import Event from './components/Event'
 import { useState, useEffect } from 'react'
+import styled from 'styled-components'
 
 function App() {
   const [start, setStart] = useState(false)
   const [event, setEvent] = useState([])
+  const [pause, setPause] = useState(false)
 
   const looting = 110
   const exp15 = 900
   const exp30 = 1800
 
+  const StyledDiv = styled.div`
+    border: 10px solid #6d1b7b;
+    background-color: #af52bf;
+    border-radius: 2em;
+    width: 500px;
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  `;
+
   const startOnClick = () => {
     setStart(!start)
   }
 
-  useEffect(() => {
-    const getEvent = async () => {
-      const eventFromServer = await fetchEvent()
-      setEvent(eventFromServer)
-    }
-    getEvent()
-  }, [])
-
-  const fetchEvent = async () => {
-    const res = await fetch('http://localhost:5000')
-    const data = await res.json()
-
-    return data
-  }
-
-  const onClick = () => {
-    console.log(event)
+  const pauseOnClick = () => {
+    setPause(!pause)
   }
 
   return (
     <div className="App">
-      <StartBtn onClick={startOnClick} text={start === false ? '시작' : '리셋'} /> <br />
-      {start && <Count second={looting} src={Meso} />}일시정지<br />회수
-      {start && <Count second={exp15} src={Exp15} />}일시정지<br />15분 경쿠
-      {start && <Count second={exp30} src={Exp30} />}일시정지<br />30분 경쿠<br />
-      <button onClick={onClick}>
-        JSON
-      </button>
+      <StyledDiv>
+        <div style={{ fontSize: '3rem', color: 'black', opacity: '0.7', fontWeight: 'bold', margin: '1px' }}>
+          Maple Looting Alert
+        </div>
+        {start && <Count second={looting} src={Meso} text={'/110'} />}
+        {start && <Count second={exp15} src={Exp15} text={'/900'} />}
+        {start && <Count second={exp30} src={Exp30} text={'/1800'} />}
+        <div style={{ width: '100%', display: 'flex', justifyContent: 'center' }}>
+          <StartBtn onClick={startOnClick} text={start === false ? '시작' : '처음으로'} />
+          {start && <StartBtn text={'초기화'} onClick={pauseOnClick} />}
+        </div>
+      </StyledDiv>
     </div>
   );
 }

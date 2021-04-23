@@ -3,7 +3,16 @@
 body {
   margin: 0;
   font-family: "메이플스토리 OTF", "메이플스토리OTF", "nexon-maplestory-otf";
-
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  background-image: url("C:\Users\kimyoungjo\Desktop\Study\maple-looting-alert\src\main-wallpaper.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

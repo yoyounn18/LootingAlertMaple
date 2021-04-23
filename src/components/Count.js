@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Audio from './Audio'
+import StartBtn from './StartBtn';
 
-const Count = ({ second, src, run }) => {
+const Count = ({ second, src, run, text, pause }) => {
     const [count, setCount] = useState(1);
     const [delay, setDelay] = useState(1000);
     const [isRunning, setIsRunning] = useState(true);
@@ -29,15 +30,21 @@ const Count = ({ second, src, run }) => {
         }, [delay]);
     }
 
-    const handleIsRunningChange = (e) => {
-        setIsRunning(e.target.checked);
+    const handleIsRunningChange = () => {
+        setIsRunning(!isRunning);
     }
 
     return (
         <>
-            <h1>{count}</h1>
-            {count % second === 0 && <Audio sound={src} />}
-            <input type="checkbox" checked={isRunning} onChange={handleIsRunningChange} />
+            <div style={{ fontSize: '3rem', color: 'white', width: '30vw', height: '15vh', display: 'flex', justifyContent: 'center', flexDirection: 'column', alignItems: 'center' }}>
+                {/* <h4 style={{ color: "white", fontSize: "2.5rem", padding: '0' }}>{count}{text}</h4> */}
+                {count}{text}
+                {count % second === 0 && <Audio sound={src} />}
+                {/* <input type="checkbox" checked={isRunning} onChange={handleIsRunningChange}></input> */}
+                <div>
+                    <StartBtn onClick={handleIsRunningChange} text={isRunning ? '||' : '▶'}></StartBtn>
+                </div>
+            </div>
         </>
     )
 }
