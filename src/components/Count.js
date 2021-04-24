@@ -8,8 +8,13 @@ const Count = ({ second, src, run, text, pause }) => {
     const [isRunning, setIsRunning] = useState(true);
 
     useInterval(() => {
+        isRunning && setDelay(1000)
+
+        count + 1 === second && setDelay(2000)
+
         setCount(count + 1)
         count === second && setCount(1)
+
     }, isRunning ? delay : null)
 
     function useInterval(callback, delay) {
